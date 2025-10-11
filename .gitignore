@@ -1,0 +1,24 @@
+# Datos grandes (no versionar)
+data/raw/
+data/processed/
+results/
+
+# Archivos de secuencias
+*.fastq
+*.fastq.gz
+*.fq
+*.fasta
+*.fa
+*.qza
+*.qzv
+*.biom
+
+# Archivos de entorno y caché
+.env
+.conda/
+__pycache__/
+*.pyc
+.ipynb_checkpoints
+
+# OS
+.DS_Store
