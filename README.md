@@ -19,6 +19,11 @@ El procesamiento de datos se realizó con **QIIME2 v2025.7.0** (Bolyen et al., 2
 3. **Clasificación taxonómica:** `q2-feature-classifier` con clasificador **Naïve Bayes (SILVA v138)** y `--p-min-confidence 0.8`
 4. **Filtrado posterior:** exclusión de muestras < 5000 lecturas y ASVs no clasificadas a nivel de filo o con < 3 lecturas.
 
+
+```
+conda create -env qiime2-amplicon
+```
+
 ---
 
 ## 2. Análisis estadísticos
