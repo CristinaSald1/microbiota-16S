@@ -1,26 +1,37 @@
 # Microbiota bacteriana y potencial funcional asociado a virulencia en fauna en cautiverio
+
 Este repositorio contiene los scripts, metadatos y resultados del análisis bioinformático, estadístico y funcional orientado a caracterizar la microbiota bacteriana presente en fauna mantenida en cautiverio y determinar su potencial funcional, con énfasis en la detección de rutas metabólicas asociadas a virulencia y factores de patogenicidad.
 
+
 ## Hipótesis
+
 La composición bacteriana y las funciones metabólicas difieren entre especies hospederas, y algunas comunidades microbianas presentan rutas asociadas a virulencia que podrían representar riesgos zoonóticos.
+
 
 ## Objetivos
 
 ### Objetivo General
+
 Caracterizar la microbiota bacteriana asociada a fauna mantenida en cautiverio y determinar su potencial funcional, enfocándose en rutas metabólicas relacionadas con virulencia y factores de patogenicidad.
 
+
 ### Objetivo Específicos
+
 **OE1:** Procesar las secuencias 16S rRNA mediante un flujo estandarizado de QIIME2 para obtener tablas de ASVs y clasificación taxonómica.
+
 **OE2:** Evaluar la diversidad bacteriana e identificar taxones diferencialmente abundantes entre especies hospederas.
+
 **OE3:** Inferir el potencial funcional microbiano y detectar rutas metabólicas relacionadas con virulencia.
+
 
 ## Muestra
 Este repositorio se encuentra inicialmente estructurado con fines de prueba y estandarización utilizando un dataset público.
-  - **Número total de muestras:** 37
-  - **Organismos hospederos:** ganado vacuno de cuatro regiones de Kazajistán (Western, Southern, Northern and Southeast)
-  - **Tipo de muestra:** heces
-  - **Tecnología:** 16S rRNA (Illumina)
-  - **Bioproject ID:** PRJNA847733
+
+**Número total de muestras:** 37
+**Organismos hospederos:** ganado vacuno de cuatro regiones de Kazajistán (Western, Southern, Northern and Southeast)
+**Tipo de muestra:** heces
+**Tecnología:** 16S rRNA (Illumina)
+**Bioproject ID:** PRJNA847733
 
 **Referencia:** 
 Daugaliyeva, A., Daugaliyeva, S., Ashanin, A. et al. (2022). Study of cattle microbiota in different regions of Kazakhstan using 16S metabarcoding analysis. Scientific Reports, 12, 16410. https://doi.org/10.1038/s41598-022-20732-4
@@ -38,7 +49,7 @@ El procesamiento de datos se realizó con **QIIME2 v2025.7.0** (Bolyen et al., 2
 3. **Clasificación taxonómica:** `q2-feature-classifier` con clasificador **Naïve Bayes (SILVA v138)** y `--p-min-confidence 0.8`
 4. **Filtrado posterior:** exclusión de muestras < 5000 lecturas y ASVs no clasificadas a nivel de filo o con < 3 lecturas.
 
----
+
 
 ## 2. Análisis estadísticos
 Los archivos de salida de QIIME2 se importaron a **R v4.5.0** mediante `qiime2R`.
@@ -59,7 +70,7 @@ Usando:
 Los taxones diferencialmente abundantes se identificaron con **DESeq2 v3.21** (Love et al., 2014) usando un **modelo binomial negativo**.  
 Los resultados se reportan como **log₂ fold-change (LFC)** con **FDR < 0.05**.
 
----
+
 
 ## 3. Análisis funcional y ecológico
 
@@ -79,21 +90,25 @@ Se realizaron:
 ## Ejecución del pipeline
 
 Descargar secuencias desde SRA
+
 ```
 mkdir -p datasets
 cd datasets
 cat SraAccList.txt | xargs -n 1 -I{} fastq-dump --split-files --gzip -O raw-data {}
 ```
+
 Crear entorno QIIME2
+
 ```
+# Actualizar conda
 conda update conda
-``
-```
+
+# Crear entorno conda para qiime2 v25.7
 conda env create \
   --name qiime2-amplicon \
   --file https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/2025.7/amplicon/released/qiime2-amplicon-ubuntu-latest-conda.yml
-```
-```
+
+# Verificar la creación del entorno
 conda deactivate
 conda activate qiime2-amplicon
 qiime info
@@ -101,12 +116,15 @@ qiime info
 Consultar guía oficial:
 https://library.qiime2.org/quickstart/amplicon
 
+
 Ejecutar scripts del repositorio
-1. Generación de tablas de ASVs y clasificación taxonómica
+
 ```
+# Generar de tablas de ASVs y clasificación taxonómica
 bash scripts/qiime2.sh
-``
-2. Análisis de diversidad
 ```
+
+```
+# Analizar la diversidad bacteriana
 bash scripts/stats.R
 ```
