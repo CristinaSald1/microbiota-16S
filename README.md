@@ -1,6 +1,12 @@
 # Microbiota Bacteriana de Fauna Silvestre en Cautiverio
 Este repositorio contiene los scripts, metadatos y resultados del flujo de análisis bioinformático, estadístico y funcional para caracterizar la diversidad bacteriana asociada a la fauna silvestre mantenida en cautiverio.
 
+```
+mkdir -p datasets
+cd datasets
+cat SraAccList.txt | xargs -n 1 -I{} fastq-dump --split-files --gzip -O raw-data {}
+```
+
 ---
 
 ## 1. Análisis bioinformático
