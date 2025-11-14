@@ -122,7 +122,7 @@ qiime info
 Ejecutar scripts del repositorio
 
 ```
-# Generar de tablas de ASVs y clasificación taxonómica
+# Generar tablas de ASVs y clasificación taxonómica
 bash scripts/qiime2.sh
 ```
 ```
