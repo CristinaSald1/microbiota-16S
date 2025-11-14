@@ -1,4 +1,4 @@
-name: 16S_zoonotic_pipeline
+name: qiime2-amplicon
 channels:
   - defaults
 dependencies:
@@ -126,4 +126,4 @@ dependencies:
       - webcolors==24.11.1
       - webencodings==0.5.1
       - websocket-client==1.9.0
-prefix: /home/cristinasald/miniconda3/envs/16S_zoonotic_pipeline
+prefix: /home/cristinasald/miniconda3/envs/qiime2-amplicon
