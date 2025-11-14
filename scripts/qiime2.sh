@@ -63,7 +63,7 @@ fi
 # -------------- DETECT DATA TYPE ---------------
 # ===============================================
 
-if [ $(ls "$DATA_IN"/*_R2*.clean.fastq.gz 2>/dev/null | wc -l) -gt 0 ]; then
+if [ $(ls "$DATA_IN"/*_2*.clean.fastq.gz 2>/dev/null | wc -l) -gt 0 ]; then
     TYPE="paired-end"
 else
     TYPE="single-end"
@@ -88,10 +88,10 @@ if [ "$TYPE" == "single-end" ]; then
 
 else
     echo -e "sample-id\tabsolute-filepath-forward\tabsolute-filepath-reverse" > $MANIFEST
-    for f in $DATA_IN/*_R1*.fastq.gz; do
-        id=$(basename "$f" _R1.clean.fastq.gz)
+    for f in $DATA_IN/*_1*.fastq.gz; do
+        id=$(basename "$f" _1.clean.fastq.gz)
         forward=$(readlink -f "$f")
-        reverse=$(readlink -f "${DATA_IN}/${id}_R2.clean.fastq.gz")
+        reverse=$(readlink -f "${DATA_IN}/${id}_2.clean.fastq.gz")
         if [ ! -f "$reverse" ]; then
             echo "No se encontró el archivo reverse para $id"; exit 1
         fi
