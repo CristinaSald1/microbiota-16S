@@ -2,13 +2,11 @@
 
 Este repositorio contiene los scripts, metadatos y resultados del análisis bioinformático, estadístico y funcional orientado a caracterizar la microbiota bacteriana presente en fauna mantenida en cautiverio y determinar su potencial funcional, con énfasis en la detección de rutas metabólicas asociadas a virulencia y factores de patogenicidad.
 
---
 
 ## Hipótesis
 
 La composición bacteriana y las funciones metabólicas difieren entre especies hospederas, y algunas comunidades microbianas presentan rutas asociadas a virulencia que podrían representar riesgos zoonóticos.
 
---
 
 ## Objetivos
 
@@ -23,7 +21,6 @@ Caracterizar la microbiota bacteriana asociada a fauna mantenida en cautiverio y
 2. Evaluar la diversidad bacteriana e identificar taxones diferencialmente abundantes entre especies hospederas.
 3. Inferir el potencial funcional microbiano y detectar rutas metabólicas relacionadas con virulencia.
 
---
 
 ## Muestra
 Este repositorio se encuentra inicialmente estructurado con fines de prueba y estandarización utilizando un dataset público.
@@ -111,7 +108,7 @@ conda env create \
   --name qiime2-amplicon \
   --file https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/2025.7/amplicon/released/qiime2-amplicon-ubuntu-latest-conda.yml
 ```
-Consultar guía oficial para otras veersiones:
+Consultar guía oficial para obtener otras versiones de qiime2:
 https://library.qiime2.org/quickstart/amplicon
 
 ```
