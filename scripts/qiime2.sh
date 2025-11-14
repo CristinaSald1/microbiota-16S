@@ -20,8 +20,8 @@ echo ""
 # ---------------- CONFIGURATION ----------------
 # ===============================================
 
-DATA_IN="data/clean"                  # Cleaned fastq.gz files
-METADATA="data/sample-metadata.tsv"   # Metadata file
+DATA_IN="datasets/clean-data"         # Cleaned fastq.gz files
+METADATA="datatasets/metadata.tsv"    # Metadata file
 
 QIIME_IN="qiime2/data"                # QIIME2 inputs
 CUTAD_OUT="qiime2/cutadapt"           # Cutadapt outputs
@@ -31,11 +31,11 @@ TAXA_OUT="qiime2/taxonomy"            # Taxonomic classification results
 ENV_NAME="qiime2-amplicon"            # QIIME2 environment name
 
 # Primers/Adapters
-Forward="AGAGTTTGATCCTGGCTCAG"        # 27F
-Reverse="ATTACCGCGGCTGCTGG"           # 534R
+Forward="TCTCGGCGAGGTCAGATGTATGAGAGAGAGAGAGAGCGGGGGWGCAGGWGCAG"       
+Reverse="GTCTGGGGGCTGAGATGTAGTAGAGAGAGAGCAGACTCHVGTATCTATCCATC"           
 
 # Trained classifier
-CLASSIFIER="qiime2/classifier/silva-V1-V3-classifier.qza"
+CLASSIFIER="qiime2/classifier/silva-V3-V4-classifier.qza"
 
 # Create output folders if they don't exist
 mkdir -p "$QIIME_IN" "$CUTAD_OUT" "$DADA_OUT" "$TAXA_OUT"
