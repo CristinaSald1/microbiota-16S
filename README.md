@@ -37,6 +37,7 @@ Este repositorio se encuentra inicialmente estructurado con fines de prueba y es
 **Referencia:** 
 Daugaliyeva, A., Daugaliyeva, S., Ashanin, A. et al. (2022). Study of cattle microbiota in different regions of Kazakhstan using 16S metabarcoding analysis. Scientific Reports, 12, 16410. https://doi.org/10.1038/s41598-022-20732-4
 
+
 ---
 
 ## Métodos
