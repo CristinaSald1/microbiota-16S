@@ -98,8 +98,8 @@ cat SraAccList.txt | xargs -n 1 -I{} fastq-dump --split-files --gzip -O raw-data
 Análisis de calidad de secuencias
 ```
 mkdir -p fasqc_reports
-fastqc raw-data/*.fastq.gz -o fasqc_reports
-
+fastqc raw-data/*.fastq.gz -o fasqc_reports/
+multiqc fasqc_reports/ -o fasqc_reports/
 ```
 
 
