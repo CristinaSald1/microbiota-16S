@@ -88,13 +88,20 @@ Se realizaron:
 
 ## Ejecución del pipeline
 
-Descargar secuencias desde SRA
-
+Descar secuencias desde SRA
 ```
 mkdir -p datasets
 cd datasets
 cat SraAccList.txt | xargs -n 1 -I{} fastq-dump --split-files --gzip -O raw-data {}
 ```
+
+Análisis de calidad de secuencias
+```
+mkdir -p fasqc_reports
+fastqc raw-data/*.fastq.gz -o fasqc_reports
+
+```
+
 
 Crear entorno QIIME2
 
@@ -103,13 +110,12 @@ Crear entorno QIIME2
 conda update conda
 ```
 ```
-# Crear entorno conda para qiime2 v25.7
+# Crear un entorno conda para qiime2 v25.7
 conda env create \
   --name qiime2-amplicon \
   --file https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/2025.7/amplicon/released/qiime2-amplicon-ubuntu-latest-conda.yml
 ```
-Consultar guía oficial para obtener otras versiones de qiime2:
-https://library.qiime2.org/quickstart/amplicon
+- Consultar guía oficial para obtener otras versiones de qiime2: https://library.qiime2.org/quickstart/amplicon
 
 ```
 # Verificar la creación del entorno
