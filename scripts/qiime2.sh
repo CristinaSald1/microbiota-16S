@@ -20,7 +20,7 @@ echo ""
 # ---------------- CONFIGURATION ----------------
 # ===============================================
 
-DATA_IN="datasets/clean-data"         # Cleaned fastq.gz files
+DATA_IN="datasets/raw-data"           # Cleaned fastq.gz files
 METADATA="datatasets/metadata.tsv"    # Metadata file
 
 QIIME_IN="qiime2/data"                # QIIME2 inputs
